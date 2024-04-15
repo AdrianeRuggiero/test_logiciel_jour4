@@ -11,7 +11,9 @@ soup = BeautifulSoup(response.content, 'html.parser')
 
 links = []
 for link in soup.find_all('a'):
-    links.append(link.get('href'))
+    href = link.get('href')
+    if href and (href.startswith("http://") or href.startswith("https://")):
+        links.append(href)
 
 # Convertendo para JSON
 links_json = json.dumps(links)
