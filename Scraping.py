@@ -21,4 +21,8 @@ for link in soup.find_all('a'):
 # Convertendo para JSON
 links_json = json.dumps(links)
 
-print(links_json)
+# Escrevendo o Json em um arquivo
+with open('links.json', 'w') as f:
+    f.write(links_json)
+
+print("JSON sauvegardé dans le fichier 'links.json'")
